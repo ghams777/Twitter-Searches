@@ -74,7 +74,7 @@
                   moduleName = "TwitterSearches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/admin/Documents/Erawan/IOS/Managam/Github%20Repo/iOS%20Project/Twitter-Searches/TwitterSearches/TwitterSearches/Model.swift"
-                  timestampString = "483254582.191429"
+                  timestampString = "483260414.964459"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "184"
@@ -89,7 +89,7 @@
                   moduleName = "TwitterSearches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/admin/Documents/Erawan/IOS/Managam/Github%20Repo/iOS%20Project/Twitter-Searches/TwitterSearches/TwitterSearches/Model.swift"
-                  timestampString = "483254582.191585"
+                  timestampString = "483260414.964741"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "184"
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterSearches/MasterViewController.swift"
-            timestampString = "483254501.928202"
+            timestampString = "483260413.873523"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "displayAddEditSearchAlert(_:index:)"
             landmarkType = "5">
             <Locations>
@@ -122,11 +122,11 @@
                   moduleName = "TwitterSearches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/admin/Documents/Erawan/IOS/Managam/Github%20Repo/iOS%20Project/Twitter-Searches/TwitterSearches/TwitterSearches/MasterViewController.swift"
-                  timestampString = "483254582.192699"
+                  timestampString = "483260414.966192"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
+                  startingLineNumber = "115"
+                  endingLineNumber = "115"
                   offsetFromSymbolStart = "1118">
                </Location>
                <Location
@@ -137,11 +137,11 @@
                   moduleName = "TwitterSearches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/admin/Documents/Erawan/IOS/Managam/Github%20Repo/iOS%20Project/Twitter-Searches/TwitterSearches/TwitterSearches/MasterViewController.swift"
-                  timestampString = "483254582.192913"
+                  timestampString = "483260414.966523"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
+                  startingLineNumber = "115"
+                  endingLineNumber = "115"
                   offsetFromSymbolStart = "2699">
                </Location>
             </Locations>
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterSearches/MasterViewController.swift"
-            timestampString = "483254572.10076"
+            timestampString = "483260413.873523"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>

@@ -15,6 +15,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     var managedObjectContext: NSManagedObjectContext? = nil
     var model: Model! = nil // manages the app's data
     
+    let twitterSearchURL = "http://mobile.twitter.com/search/?q="
+    
     //conform to ModelDelegate protocol; updates view when model changes
     func modelDataChanged() {
         tableView.reloadData() // reload the UITableView
@@ -137,6 +139,28 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         displayAddEditSearchAlert(true, index: nil)
     }
     
+    
+    // return a URL encoded version of the query string
+    func urlEncodeString(string: String) -> String {
+        
+        return string.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+        
+    }
+    
+    // display share sheet
+    func shareSearch(index: Int) {
+        
+        let message = "Check out the result of this Twitter search"
+        let urlString = self.twitterSearchURL + urlEncodeString(model.queryForTagAtIndex(index))
+        
+        let itemsToShare = [message, urlString]
+        
+        // create UIActivityViewController so user can chare search
+        let activityViewController = UIActivityViewController(activityItems: [itemsToShare], applicationActivities: nil)
+        
+        presentViewController(activityViewController, animated: true, completion: nil)
+        
+    }
     
     
     // displays the edit/share options
