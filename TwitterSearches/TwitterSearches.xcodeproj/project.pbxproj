@@ -16,6 +16,7 @@
 		8423177E1CCDBB24009E17A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8423177C1CCDBB24009E17A7 /* LaunchScreen.storyboard */; };
 		842317891CCDBB24009E17A7 /* TwitterSearchesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842317881CCDBB24009E17A7 /* TwitterSearchesTests.swift */; };
 		842317941CCDBB24009E17A7 /* TwitterSearchesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842317931CCDBB24009E17A7 /* TwitterSearchesUITests.swift */; };
+		842317A31CCDC156009E17A7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842317A21CCDC156009E17A7 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		8423178F1CCDBB24009E17A7 /* TwitterSearchesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwitterSearchesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		842317931CCDBB24009E17A7 /* TwitterSearchesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterSearchesUITests.swift; sourceTree = "<group>"; };
 		842317951CCDBB24009E17A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		842317A21CCDC156009E17A7 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				842317731CCDBB23009E17A7 /* MasterViewController.swift */,
 				842317751CCDBB23009E17A7 /* DetailViewController.swift */,
 				842317771CCDBB23009E17A7 /* Main.storyboard */,
+				842317A21CCDC156009E17A7 /* Model.swift */,
 				842317701CCDBB23009E17A7 /* TwitterSearches.xcdatamodeld */,
 				842317A11CCDBB4B009E17A7 /* Resources */,
 			);
@@ -270,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				842317A31CCDC156009E17A7 /* Model.swift in Sources */,
 				8423176F1CCDBB23009E17A7 /* AppDelegate.swift in Sources */,
 				842317721CCDBB23009E17A7 /* TwitterSearches.xcdatamodeld in Sources */,
 				842317741CCDBB23009E17A7 /* MasterViewController.swift in Sources */,
