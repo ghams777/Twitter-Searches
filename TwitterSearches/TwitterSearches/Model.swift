@@ -137,4 +137,81 @@ class Model {
     }
     
     
+    
+    
+    // save a tag-query pair
+    func saveQuery(query: String, forTag tag: String, syncToCloud sync: Bool) {
+        
+        // Dictionary method updateValue returns nil if key is new
+        let oldValue = searches.updateValue(query, forKey: tag)
+        
+        if oldValue == nil {
+            
+            tags.insert(tag, atIndex: 0) // store search tag
+            updateUserDefaults(true, updateSearches: true)
+        } else {
+            updateUserDefaults(false, updateSearches: true)
+        }
+        
+        
+        // if sync is true, add tag-query pair to iCloud
+        if sync {
+            
+            NSUbiquitousKeyValueStore.defaultStore().setObject(query, forKey: tag)
+        }
+        
+    }
+    
+    
+    
+    // add, update, or delete searches based on iCloud changes
+    func performUpdates(userInfo: [NSObject: AnyObject]) {
+        
+        // get chaged keys NSArray: convert to [String]
+        let changedKeysObject = userInfo[NSUbiquitousKeyValueStoreChangedKeysKey]
+        let changedKeys = changedKeysObject as! [String]
+        
+        // get NSUbiquitousKeyValueStroe for updating
+        let keyValueStore = NSUbiquitousKeyValueStore.defaultStore()
+        
+        // update searches base on iCloud changes
+        for key in changedKeys {
+            
+            if let query = keyValueStore.stringForKey(key) {
+                saveQuery(query, forTag: key, syncToCloud: false)
+            } else {
+                searches.removeValueForKey(key)
+                tags = tags.filter{$0 != key}
+                updateUserDefaults(true, updateSearches: true)
+            }
+            
+            delegate.modelDataChanged() // update the view
+            
+        }
+        
+    }
+    
+    
+    // update or delete searches when iCLoud change occur
+    @objc func updateSearches(notification: NSNotification) {
+        
+        if let userInfo = notification.userInfo {
+            
+            // check reason for change and update accordingly
+            if let reason = userInfo[NSUbiquitousKeyValueStoreChangeReasonKey] as? NSNumber {
+                
+                
+                // if changes occured on another device
+                if reason.integerValue == NSUbiquitousKeyValueStoreServerChange || reason.integerValue == NSUbiquitousKeyValueStoreInitialSyncChange {
+                    
+                    performUpdates(userInfo)
+                    
+                }
+                
+            }
+        }
+        
+    }
+    
+    
 }
