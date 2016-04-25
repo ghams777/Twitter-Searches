@@ -15,7 +15,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     var managedObjectContext: NSManagedObjectContext? = nil
     var model: Model! = nil // manages the app's data
     
-    let twitterSearchURL = "http://mobile.twitter.com/search/?q="
+    let twitterSearchURL = "https://mobile.twitter.com/search/?q="
     
     //conform to ModelDelegate protocol; updates view when model changes
     func modelDataChanged() {
@@ -89,7 +89,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         alertController.addTextFieldWithConfigurationHandler { (textField) in
             
             if isNew {
-                textField.placeholder = "Taq your query"
+                textField.placeholder = "Tag your query"
             } else {
                 textField.text = self.model.tagAtIndex(index!)
                 textField.enabled = false
@@ -120,7 +120,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                     let indexPath = NSIndexPath(forRow: 0, inSection: 0)
                     self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
                 }
-                
             }
             
         }
@@ -329,7 +328,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         cell.textLabel!.text = model.tagAtIndex(indexPath.row)
         
         // set up long press gesture recognizer
-        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: "tableViewCellLongPressed:")
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(MasterViewController.tableViewCellLongPressed(_:)))
         longPressGestureRecognizer.minimumPressDuration = 0.5
         
         cell.addGestureRecognizer(longPressGestureRecognizer)

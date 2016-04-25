@@ -106,8 +106,7 @@
 				842317731CCDBB23009E17A7 /* MasterViewController.swift */,
 				842317751CCDBB23009E17A7 /* DetailViewController.swift */,
 				842317771CCDBB23009E17A7 /* Main.storyboard */,
-				842317A21CCDC156009E17A7 /* Model.swift */,
-				842317701CCDBB23009E17A7 /* TwitterSearches.xcdatamodeld */,
+				842317A41CCE0E99009E17A7 /* Model */,
 				842317A11CCDBB4B009E17A7 /* Resources */,
 			);
 			path = TwitterSearches;
@@ -140,6 +139,15 @@
 				8423177F1CCDBB24009E17A7 /* Info.plist */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		842317A41CCE0E99009E17A7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				842317A21CCDC156009E17A7 /* Model.swift */,
+				842317701CCDBB23009E17A7 /* TwitterSearches.xcdatamodeld */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
