@@ -29,4 +29,61 @@ class Model {
     private let delegate: ModelDelegate // delegate is MasterViewController
     
     
+    // initializes the Model
+    init(delegate: ModelDelegate) {
+        self.delegate = delegate
+        
+        // get the NSUserDefaults object for the app
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        // get Dictionary of the app's tag-query pairs
+        if let pairs = userDefaults.dictionaryForKey(pairsKey) {
+            
+            self.searches = pairs as! [String: String]
+            
+        }
+        
+        
+        // get Array with the app's tag order
+        if let tags = userDefaults.arrayForKey(tagsKey) {
+            
+            self.tags = tags as! [String]
+            
+        }
+        
+        // register to iCloud change notifications
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updateSearches"), name: NSUbiquitousKeyValueStoreDidChangeExternallyNotification, object: NSUbiquitousKeyValueStore.defaultStore())
+        
+    }
+    
+
+    // called by view controller to synchronize model after it's created
+    
+    func synchronize() {
+        NSUbiquitousKeyValueStore.defaultStore().synchronize()
+    }
+    
+    
+    // returns the tag at the specified index
+    func tagAtIndex(index: Int) -> String {
+        return tags[index]
+        
+    }
+    
+    // returns the query String for a given tag
+    func queryForTag(tag: String) -> String {
+        return searches[tag]!
+    }
+    
+    // returns the query String for the tag at a given index
+    func queryForTagAtIndex(index: Int) -> String {
+        return searches[tags[index]]!
+    }
+    
+    // returns the number of tags
+    var count: Int {
+        return tags.count
+    }
+    
+    
 }
