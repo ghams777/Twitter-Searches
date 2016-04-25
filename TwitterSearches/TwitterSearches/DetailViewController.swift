@@ -12,6 +12,7 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
+    @IBOutlet weak var webView: UIWebView!
 
     var detailItem: AnyObject? {
         didSet {
