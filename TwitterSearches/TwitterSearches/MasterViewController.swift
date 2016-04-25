@@ -156,7 +156,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         let itemsToShare = [message, urlString]
         
         // create UIActivityViewController so user can chare search
-        let activityViewController = UIActivityViewController(activityItems: [itemsToShare], applicationActivities: nil)
+        let activityViewController = UIActivityViewController(activityItems: itemsToShare, applicationActivities: nil)
         
         presentViewController(activityViewController, animated: true, completion: nil)
         
@@ -297,6 +297,27 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         self.configureCell(cell, withObject: object)
         return cell
     } */
+    
+    
+    
+    // handles long press for editing or sharing a search
+    func tableViewCellLongPressed(sender: UILongPressGestureRecognizer) {
+        
+        if sender.state == UIGestureRecognizerState.Began && !(tableView.editing) {
+            
+            
+            let cell = sender.view as! UITableViewCell // get cell
+            
+            if let indexPath = tableView.indexPathForCell(cell) {
+                displayLongPressOptions(indexPath.row)
+            }
+            
+        }
+        
+    }
+    
+    
+    
     
     // callback that returns a configured cell for the given NSIndexPath
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
