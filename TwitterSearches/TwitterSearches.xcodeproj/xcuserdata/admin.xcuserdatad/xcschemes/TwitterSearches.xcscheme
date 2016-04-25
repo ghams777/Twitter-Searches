@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "841483121CCA337200926890"
-               BuildableName = "Twitter Searches.app"
-               BlueprintName = "Twitter Searches"
-               ReferencedContainer = "container:Twitter Searches.xcodeproj">
+               BlueprintIdentifier = "8423176A1CCDBB23009E17A7"
+               BuildableName = "TwitterSearches.app"
+               BlueprintName = "TwitterSearches"
+               ReferencedContainer = "container:TwitterSearches.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,30 +32,30 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "841483261CCA337200926890"
-               BuildableName = "Twitter SearchesTests.xctest"
-               BlueprintName = "Twitter SearchesTests"
-               ReferencedContainer = "container:Twitter Searches.xcodeproj">
+               BlueprintIdentifier = "842317831CCDBB24009E17A7"
+               BuildableName = "TwitterSearchesTests.xctest"
+               BlueprintName = "TwitterSearchesTests"
+               ReferencedContainer = "container:TwitterSearches.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "841483311CCA337200926890"
-               BuildableName = "Twitter SearchesUITests.xctest"
-               BlueprintName = "Twitter SearchesUITests"
-               ReferencedContainer = "container:Twitter Searches.xcodeproj">
+               BlueprintIdentifier = "8423178E1CCDBB24009E17A7"
+               BuildableName = "TwitterSearchesUITests.xctest"
+               BlueprintName = "TwitterSearchesUITests"
+               ReferencedContainer = "container:TwitterSearches.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "841483121CCA337200926890"
-            BuildableName = "Twitter Searches.app"
-            BlueprintName = "Twitter Searches"
-            ReferencedContainer = "container:Twitter Searches.xcodeproj">
+            BlueprintIdentifier = "8423176A1CCDBB23009E17A7"
+            BuildableName = "TwitterSearches.app"
+            BlueprintName = "TwitterSearches"
+            ReferencedContainer = "container:TwitterSearches.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -75,10 +75,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "841483121CCA337200926890"
-            BuildableName = "Twitter Searches.app"
-            BlueprintName = "Twitter Searches"
-            ReferencedContainer = "container:Twitter Searches.xcodeproj">
+            BlueprintIdentifier = "8423176A1CCDBB23009E17A7"
+            BuildableName = "TwitterSearches.app"
+            BlueprintName = "TwitterSearches"
+            ReferencedContainer = "container:TwitterSearches.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,10 +94,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "841483121CCA337200926890"
-            BuildableName = "Twitter Searches.app"
-            BlueprintName = "Twitter Searches"
-            ReferencedContainer = "container:Twitter Searches.xcodeproj">
+            BlueprintIdentifier = "8423176A1CCDBB23009E17A7"
+            BuildableName = "TwitterSearches.app"
+            BlueprintName = "TwitterSearches"
+            ReferencedContainer = "container:TwitterSearches.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

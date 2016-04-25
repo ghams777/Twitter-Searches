@@ -1,15 +1,15 @@
 //
-//  Twitter_SearchesTests.swift
-//  Twitter SearchesTests
+//  TwitterSearchesTests.swift
+//  TwitterSearchesTests
 //
-//  Created by Admin on 4/22/16.
+//  Created by Admin on 4/25/16.
 //  Copyright © 2016 Morra. All rights reserved.
 //
 
 import XCTest
-@testable import Twitter_Searches
+@testable import TwitterSearches
 
-class Twitter_SearchesTests: XCTestCase {
+class TwitterSearchesTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
