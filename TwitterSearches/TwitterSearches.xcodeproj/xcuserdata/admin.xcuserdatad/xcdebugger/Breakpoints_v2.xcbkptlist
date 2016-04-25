@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterSearches/Model.swift"
-            timestampString = "483249301.195633"
+            timestampString = "483251633.79058"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "deleteSearchAtIndex(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterSearches/Model.swift"
-            timestampString = "483250702.192291"
+            timestampString = "483251633.79058"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "performUpdates(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,13 +58,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterSearches/Model.swift"
-            timestampString = "483250721.775601"
+            timestampString = "483251633.79058"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
             landmarkName = "performUpdates(_:)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TwitterSearches.Model.performUpdates (Swift.Dictionary&lt;__ObjC.NSObject, Swift.AnyObject&gt;) -&gt; ()"
+                  moduleName = "TwitterSearches"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/Documents/Erawan/IOS/Managam/Github%20Repo/iOS%20Project/Twitter-Searches/TwitterSearches/TwitterSearches/Model.swift"
+                  timestampString = "483252006.599482"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "184"
+                  endingLineNumber = "184"
+                  offsetFromSymbolStart = "1885">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TwitterSearches.Model.(performUpdates (Swift.Dictionary&lt;__ObjC.NSObject, Swift.AnyObject&gt;) -&gt; ()).(closure #1)"
+                  moduleName = "TwitterSearches"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/Documents/Erawan/IOS/Managam/Github%20Repo/iOS%20Project/Twitter-Searches/TwitterSearches/TwitterSearches/Model.swift"
+                  timestampString = "483252006.599826"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "184"
+                  endingLineNumber = "184"
+                  offsetFromSymbolStart = "35">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

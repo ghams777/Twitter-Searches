@@ -9,23 +9,47 @@
 import UIKit
 import CoreData
 
-class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate, ModelDelegate, UIGestureRecognizerDelegate {
 
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
-
+    var model: Model! = nil // manages the app's data
+    
+    //conform to ModelDelegate protocol; updates view when model changes
+    func modelDataChanged() {
+        tableView.reloadData() // reload the UITableView
+    }
+    
+    
+    // configure popover for UITableView on iPad
+    override func awakeFromNib() {
+        
+        super.awakeFromNib()
+        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+            
+            self.clearsSelectionOnViewWillAppear = false
+            self.preferredContentSize = CGSize(width: 320.0, height: 600.0)
+        }
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
-        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
+        //let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
+        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("addButtonPressed:"))
         self.navigationItem.rightBarButtonItem = addButton
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+        
+        
+        model = Model(delegate: self) // create the Model
+        model.synchronize() // tell model to sync its data
+        
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -37,8 +61,15 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    func insertNewObject(sender: AnyObject) {
+    
+    
+    // displays a UIAlertController to obtain new search from user
+    func addButtonPressed(sender: AnyObject) {
+        displayAddEditSearchAlert(isNew: true, index: nil)
+    }
+    
+    
+    /* func insertNewObject(sender: AnyObject) {
         let context = self.fetchedResultsController.managedObjectContext
         let entity = self.fetchedResultsController.fetchRequest.entity!
         let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context)
@@ -56,7 +87,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             //print("Unresolved error \(error), \(error.userInfo)")
             abort()
         }
-    }
+    } */
 
     // MARK: - Segues
 
