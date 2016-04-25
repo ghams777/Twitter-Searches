@@ -63,9 +63,76 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
     
     
+    
+    
+    
+    // display add/edit dialog
+    func displayAddEditSearchAlert(isNew: Bool, index: Int?) {
+        
+        // create UIAlertController for user input
+        let alertController = UIAlertController(title: isNew ? "Add Search" : "Edit Search", message: isNew ? "" : "Modify your query", preferredStyle: .Alert)
+        
+        // create UITextFields in which user can enter a new search
+        alertController.addTextFieldWithConfigurationHandler { (textField) in
+            
+            if isNew {
+                textField.placeholder = "Enter Twitter search query"
+            } else {
+                textField.text = self.model.queryForTagAtIndex(index!)
+            }
+            
+        }
+        
+        
+        alertController.addTextFieldWithConfigurationHandler { (textField) in
+            
+            if isNew {
+                textField.placeholder = "Taq your query"
+            } else {
+                textField.text = self.model.tagAtIndex(index!)
+                textField.enabled = false
+                textField.textColor = UIColor.lightGrayColor()
+            }
+        }
+        
+        
+        // create Cancel action
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        
+        
+        alertController.addAction(cancelAction)
+        
+        
+        let saveAction = UIAlertAction(title: "Save", style: .Default) { (action) in
+            
+            let query = (alertController.textFields![0] as UITextField).text
+            let tag = (alertController.textFields![1] as UITextField).text
+            
+            
+            // ensure query and tag are not empty
+            if !(query?.isEmpty)! && !(tag?.isEmpty)! {
+                
+                self.model.saveQuery(query!, forTag: tag!, syncToCloud: true)
+                
+                if isNew {
+                    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                    self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                }
+                
+            }
+            
+        }
+        
+        
+        alertController.addAction(saveAction)
+        
+    }
+    
+    
+    
     // displays a UIAlertController to obtain new search from user
     func addButtonPressed(sender: AnyObject) {
-        displayAddEditSearchAlert(isNew: true, index: nil)
+        displayAddEditSearchAlert(true, index: nil)
     }
     
     
