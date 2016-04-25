@@ -276,6 +276,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         return self.fetchedResultsController.sections?.count ?? 0
     } */
     
+    // callback that returns total number of sections in UITableView
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -285,23 +286,55 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         return sectionInfo.numberOfObjects
     } */
     
+    // callback that returns number of rows if the UITableView
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.count
     }
-
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    
+    /* override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
         self.configureCell(cell, withObject: object)
         return cell
+    } */
+    
+    // callback that returns a configured cell for the given NSIndexPath
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        // get cell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        
+        // set cell label's text to the taf at the specified index
+        cell.textLabel!.text = model.tagAtIndex(indexPath.row)
+        
+        // set up long press gesture recognizer
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: "tableViewCellLongPressed:")
+        longPressGestureRecognizer.minimumPressDuration = 0.5
+        
+        cell.addGestureRecognizer(longPressGestureRecognizer)
+        
+        return cell
+        
     }
 
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    
+    
+    
+    /* override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
+    } */
+    
+    // callback that returns whether a cell is editable
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        
+        return true
+        
     }
 
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+
+
+    /* override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             let context = self.fetchedResultsController.managedObjectContext
             context.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject)
@@ -315,7 +348,26 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                 abort()
             }
         }
+    } */
+    
+    
+    // callback that deletes a row from the UITableView
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        switch editingStyle {
+        case .Delete:
+            model.deleteSearchAtIndex(indexPath.row)
+            
+            // remove UITableView row
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        default:
+            break
+        }
+        
     }
+    
+    
+    
 
     func configureCell(cell: UITableViewCell, withObject object: NSManagedObject) {
         cell.textLabel!.text = object.valueForKey("timeStamp")!.description
