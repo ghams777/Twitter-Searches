@@ -64,6 +64,7 @@ class Model {
     }
     
     
+    
     // returns the tag at the specified index
     func tagAtIndex(index: Int) -> String {
         return tags[index]
@@ -83,6 +84,42 @@ class Model {
     // returns the number of tags
     var count: Int {
         return tags.count
+    }
+    
+    
+    
+    // update user defaults with current searches and tags collections
+    func updateUserDefaults(updateTags: Bool, updateSearches: Bool) {
+        
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        if updateTags {
+            
+            userDefaults.setObject(tags, forKey: tagsKey)
+        }
+        
+        if updateSearches {
+            
+            userDefaults.setObject(searches, forKey: pairsKey)
+        }
+        
+        userDefaults.synchronize() // force immediate save to device
+        
+    }
+    
+    
+    // deletes the tag from tags Array, and the corresponding tag-query pair from searches iCloud
+    func deleteSearchAtIndex(index: Int) {
+        
+        searches.removeValueForKey(tags[index])
+        let removedTag = tags.removeAtIndex(index)
+        updateUserDefaults(true, updateSearches: true)
+        
+        // remove search from iCloud
+        let keyValueStroe = NSUbiquitousKeyValueStore.defaultStore()
+        keyValueStroe.removeObjectForKey(removedTag)
+        
+        
     }
     
     
