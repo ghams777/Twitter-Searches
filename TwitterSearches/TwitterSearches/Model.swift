@@ -88,6 +88,7 @@ class Model {
     
     
     
+    
     // update user defaults with current searches and tags collections
     func updateUserDefaults(updateTags: Bool, updateSearches: Bool) {
         
@@ -108,6 +109,7 @@ class Model {
     }
     
     
+    
     // deletes the tag from tags Array, and the corresponding tag-query pair from searches iCloud
     func deleteSearchAtIndex(index: Int) {
         
@@ -119,6 +121,18 @@ class Model {
         let keyValueStroe = NSUbiquitousKeyValueStore.defaultStore()
         keyValueStroe.removeObjectForKey(removedTag)
         
+        
+    }
+    
+    
+    
+    // reorders tags Array when user moves tag in controller's UITableView
+    func moveTagAtIndex(oldIndex: Int, toDestinationIndex newIndex: Int) {
+        
+        let temp = tags.removeAtIndex(oldIndex)
+        tags.insert(temp, atIndex: newIndex)
+        
+        updateUserDefaults(true, updateSearches: false)
         
     }
     
