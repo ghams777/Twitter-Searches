@@ -39,7 +39,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
         //let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
-        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("addButtonPressed:"))
+        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(MasterViewController.addButtonPressed(_:)))
         self.navigationItem.rightBarButtonItem = addButton
         if let split = self.splitViewController {
             let controllers = split.viewControllers
@@ -126,6 +126,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         alertController.addAction(saveAction)
         
+        presentViewController(alertController, animated: true, completion: nil)
+        
     }
     
     
@@ -133,6 +135,52 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     // displays a UIAlertController to obtain new search from user
     func addButtonPressed(sender: AnyObject) {
         displayAddEditSearchAlert(true, index: nil)
+    }
+    
+    
+    
+    // displays the edit/share options
+    func displayLongPressOptions(row: Int) {
+        
+        // create UIAlertController for user input
+        let alertController = UIAlertController(title: "Options", message: "Edit or Share your search", preferredStyle: .Alert)
+        
+        // create Cancel Action
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        // create Edit Action
+        let editAction = UIAlertAction(title: "Edit", style: .Default) { (action) in
+            
+            self.displayAddEditSearchAlert(false, index: row)
+            
+        }
+        alertController.addAction(editAction)
+        
+        // create Share Action
+        let shareAction = UIAlertAction(title: "Share", style: .Default, handler: { (action) in self.shareSearch(row) })
+        
+        
+        alertController.addAction(shareAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
+        
+    }
+    
+    
+    // handles long press for editing or sharing a search
+    func tableViewCellLongPress(sender: UILongPressGestureRecognizer) {
+        
+        if sender.state == .Began && !(tableView.editing) {
+            
+            let cell = sender.view as! UITableViewCell // get cell
+            
+            if let indexPath = tableView.indexPathForCell(cell) {
+                displayLongPressOptions(indexPath.row)
+            }
+            
+        }
+        
     }
     
     

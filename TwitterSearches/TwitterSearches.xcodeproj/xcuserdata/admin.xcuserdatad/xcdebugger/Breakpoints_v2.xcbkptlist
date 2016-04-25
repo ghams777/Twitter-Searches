@@ -74,7 +74,7 @@
                   moduleName = "TwitterSearches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/admin/Documents/Erawan/IOS/Managam/Github%20Repo/iOS%20Project/Twitter-Searches/TwitterSearches/TwitterSearches/Model.swift"
-                  timestampString = "483252006.599482"
+                  timestampString = "483254582.191429"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "184"
@@ -89,7 +89,7 @@
                   moduleName = "TwitterSearches"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/admin/Documents/Erawan/IOS/Managam/Github%20Repo/iOS%20Project/Twitter-Searches/TwitterSearches/TwitterSearches/Model.swift"
-                  timestampString = "483252006.599826"
+                  timestampString = "483254582.191585"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "184"
@@ -106,12 +106,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterSearches/MasterViewController.swift"
-            timestampString = "483254219.40923"
+            timestampString = "483254501.928202"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "displayAddEditSearchAlert(_:index:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TwitterSearches.MasterViewController.(displayAddEditSearchAlert (Swift.Bool, index : Swift.Optional&lt;Swift.Int&gt;) -&gt; ()).(closure #3)"
+                  moduleName = "TwitterSearches"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/Documents/Erawan/IOS/Managam/Github%20Repo/iOS%20Project/Twitter-Searches/TwitterSearches/TwitterSearches/MasterViewController.swift"
+                  timestampString = "483254582.192699"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "113"
+                  endingLineNumber = "113"
+                  offsetFromSymbolStart = "1118">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TwitterSearches.MasterViewController.(displayAddEditSearchAlert (Swift.Bool, index : Swift.Optional&lt;Swift.Int&gt;) -&gt; ()).(closure #3)"
+                  moduleName = "TwitterSearches"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/Documents/Erawan/IOS/Managam/Github%20Repo/iOS%20Project/Twitter-Searches/TwitterSearches/TwitterSearches/MasterViewController.swift"
+                  timestampString = "483254582.192913"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "113"
+                  endingLineNumber = "113"
+                  offsetFromSymbolStart = "2699">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TwitterSearches/MasterViewController.swift"
+            timestampString = "483254572.10076"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
