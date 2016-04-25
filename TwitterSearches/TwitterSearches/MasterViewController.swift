@@ -367,6 +367,22 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
     
     
+    // callback that returns whether cells can be moved
+    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        
+        return true
+        
+    }
+    
+    // callback that reorders keys when user moves them in the table
+    override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        
+        // tell model to reorder tags based on UITableView order
+        model.moveTagAtIndex(sourceIndexPath.row, toDestinationIndex: destinationIndexPath.row)
+        
+    }
+    
+    
     
 
     func configureCell(cell: UITableViewCell, withObject object: NSManagedObject) {
