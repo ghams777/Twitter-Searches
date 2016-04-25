@@ -230,7 +230,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     // MARK: - Segues
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    /* override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
             let object = self.fetchedResultsController.objectAtIndexPath(indexPath)
@@ -240,17 +240,53 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
         }
+    } */
+    
+    
+    // called when app is about to seque from
+    // MasterViewController to DetailViewController
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "showDetail" {
+            
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                
+                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+                
+                //get query String
+                let query = String(model.queryForTagAtIndex(indexPath.row))
+                
+                // create NSURL to perform Twitter Search
+                controller.detailItem = NSURL(string: self.twitterSearchURL + urlEncodeString(query))
+                
+                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+                
+                controller.navigationItem.leftItemsSupplementBackButton = true
+                
+            }
+            
+        }
+        
     }
+    
 
     // MARK: - Table View
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    /* override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.fetchedResultsController.sections?.count ?? 0
+    } */
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    /* override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = self.fetchedResultsController.sections![section]
         return sectionInfo.numberOfObjects
+    } */
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return model.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
